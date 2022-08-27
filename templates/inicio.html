@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/69840.png"/>
+    <link href="../static/css/inicio.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{{url_for( 'static' , filename='js/sweetalert/sweetalert.min.js')}}"></script>
+    <script src="{{url_for( 'static' , filename='js/winbox/winbox.bundle.js')}}"></script>
+    <script src="{{url_for( 'static' , filename='js/inicio.js')}}"></script>
+</head>
+<body>
+<canvas id="canvas" style="display: none;" id="canvas" width="640" height="480"></canvas>
+<header class="header">
+    <div class="inicial">
+
+        <li class="incono">
+            Gym
+            <a class="fas fa-dumbbell"></a>
+        </li>
+        <div>
+            <ul>
+                <li>
+                    <a href="#0">
+                        <span>Contactanos</span>
+                        <span>
+                          <i class="fas fa-tty" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#0">
+                        <span>¿Quienes somos?</span>
+                        <span>
+                          <i class="fas fa-address-card" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#0">
+                        <span>Rutinas</span>
+                        <span>
+                          <i class="fas fa-running" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                    <a href="http://localhost:2345/login_gym?action='resgistro'">
+                        <span>Registrate</span>
+                        <span>
+                          <i class="fas fa-cash-register" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    {% if session['usuario']  == null %}
+                    <a href="http://localhost:2345/login_gym?action='login'">
+                        <span>Iniciar Sesión</span>
+                        <span>
+                          <i class="fas fa-sign-in-alt"  aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% if session['usuario']  != null %}
+                    <a >
+                        <span>{{ session['usuario'] }}</span>
+                        <span>
+                          <i class="fas fa-sign-out-alt" onclick="cerrarSession()" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock %}
+</header>
+
+</body>
+</html>

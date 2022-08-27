@@ -1,0 +1,22 @@
+{% extends 'inicio.html' %}
+
+{% block body %}
+
+{% if action == "'login'" %}
+<script src="{{url_for( 'static' , filename='js/login_facial.js')}}"></script>
+{% endif %}
+
+{% if action == "'resgistro'" %}
+<script src="{{url_for( 'static' , filename='js/registroUsuario.js')}}"></script>
+{% endif %}
+
+<script src="{{url_for( 'static' , filename='face_api/face-api.js')}}"></script>
+<div id="contendor">
+<!--    <img id="imLoad" src="../static/img/loading.gif"-->
+<!--         style="width: 21%; margin-left: 43%;margin-top: 26%; margin-bottom: 23%; ">-->
+    <div class="modal-body" id="camaraweb">
+        <video id="video" width="420" height="360" autoplay muted></video>
+    </div>
+</div>
+
+{% endblock %}
