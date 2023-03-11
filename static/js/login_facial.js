@@ -11,6 +11,7 @@
 
 let nombreLog = "";
 var setintv = null;
+var video = null;
 
 $(document).ready(() => {
     alerta();
@@ -40,6 +41,7 @@ function ventana() {
         width: 479,
         height: 410,
     });
+    video = document.getElementById("video")
     iniciarVideo();
 }
 
@@ -61,7 +63,7 @@ onkeydown = e => {
     }
 }
 
-const video = document.getElementById("video")
+
 
 //para solicitar el dispositivo de multimdia de entrada de video
 // se sobre escribe según el navegador que se utilice
